@@ -1,0 +1,13 @@
+#!/bin/bash
+places=('Toronto' 'Boston' 'Tokyo' 'Hong Kong' 'Osaka')
+
+for place in ${places[@]}
+do
+
+  if [ $place == 'Hawaii' ];
+  then
+    echo "Hawaii is the best!"
+  else
+    echo "I'm not a fan of Hawaii."
+  fi
+done

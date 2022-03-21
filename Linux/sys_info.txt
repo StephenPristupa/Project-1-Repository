@@ -1,0 +1,9 @@
+#!/bin/bash
+echo 'The date is:' 
+date
+echo 'The system info is:'
+uname -a
+echo 'The private and public IPs are:'
+hostname -I | awk -F" " '{print $1,$2}'
+echo 'The hostname of this machine is:'
+hostname
