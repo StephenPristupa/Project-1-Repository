@@ -51,13 +51,13 @@ Machines within the network can only be accessed by the Jump Box Provisioner.
 
 A summary of the access policies in place can be found in the table below.
 
-| Name         | Publicly Accessible | Allowed IP Addresses   |
-|--------------|---------------------|------------------------|
-| Jump Box     | No                  | My public IP           |
-| Web-1        | No                  | 10.0.0.5,20.228.243.177|
-| Web-2        | No                  | 10.0.0.5,20.228.243.177|
-| ELK          | No                  | 10.0.0.5, my public IP |
-| Load Balancer| Yes                 | my public IP           |
+| Name          | Publicly Accessible | Allowed IP Addresses     |
+|---------------|---------------------|--------------------------|
+| Jump Box      | No                  | My public IP             |
+| Web-1         | No                  | 10.0.0.5, 20.228.243.177 |
+| Web-2         | No                  | 10.0.0.5, 20.228.243.177 |
+| ELK           | No                  | 10.0.0.5, My public IP   |
+| Load Balancer | Yes                 | My public IP             |
 
 ### Elk Configuration
 
@@ -74,9 +74,10 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![](Images/docker_ps_output.png)
+![image](https://user-images.githubusercontent.com/89100194/159203066-011575d9-992c-40eb-9c3b-90be69e2453d.png)
 
 ### Target Machines & Beats
+
 This ELK server is configured to monitor the following machines:
 - 10.0.0.8
 - 10.0.0.9
@@ -86,8 +87,9 @@ We have installed the following Beats on these machines:
 - Metricbeat
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+
 - Filebeat collects logs about system files which we use to track when and by whom files are modified. This especially helps ensure the integrity of files, as we can track if they have been modified by an unauthorized user.
+
 - Metricbeat monitors system metrics and service metrics to determine if everything is running as it should be. It can be used to notify us if a system or service is using more resources than it should be, after which we can troubleshoot and determine if this is due to an attacker or not.
 
 ### Using the Playbook
@@ -95,12 +97,13 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 - Copy the playbook file to /roles.
-- Update the playbook file to include the necessary modules and commands for it to call when you run the ansible-playbook '<playbook_file.yml>' command
-- Run the playbook, and navigate to Kibana to check that the installation worked as expected.
 
-- _Which file is the playbook? Where do you copy it? 
+- Update the playbook file to include the necessary modules and commands for it to call when you run the ansible-playbook '<playbook_file.yml>' command
+
+- Run the playbook, and navigate to Kibana to check that the installation worked as expected.
+ 
 - The playbook file is in .yml format, and you copy it into the /roles directory in order for it to be called by the config file.
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
+
 - You update the /etc/ansible/hosts file with groups such as [webservers] or [elk] with the associated IPs, then you can call these groups in the yaml script in order to ensure it only operates on the intended machines.
-- _Which URL do you navigate to in order to check that the ELK server is running?
-- You would navigate to http://<ELK_VM_IP>:5601/app/kibana in order to see data from the ELK server.
+
+- You can navigate to http://<ELK_VM_IP>:5601/app/kibana in order to see data from the ELK server.
