@@ -104,7 +104,7 @@ In order to use the playbook, you will need to have an Ansible control node alre
 SSH into the control node and follow the steps below:
 - Copy the playbook file to /roles.
 
-- Update the playbook file to include the necessary modules and commands for it to call when you run the ansible-playbook '<playbook_file.yml>' command
+- Update the playbook file to include the necessary modules and commands for it to call when you run the ansible-playbook '<playbook_file.yml>' command where 'playbook -file.yml' is whatever you have named the relevant beats' yaml script file.
 
 - Run the playbook, and navigate to Kibana to check that the installation worked as expected.
  
