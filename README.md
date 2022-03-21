@@ -50,7 +50,7 @@ The configuration details of each machine may be found below.
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the LoadBalancer machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- My Public IP (99.237.69.42)
+- My Public IP
 
 Machines within the network can only be accessed by the Jump Box Provisioner.
 - I allowed the Jump Box Provisioner to access my ELK VM via SSH. The IP is 10.0.0.5. I also allowed access for my public IP to kibana through port 5601.
